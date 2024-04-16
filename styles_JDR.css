@@ -1,0 +1,511 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.game-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #313131;
+    width: 95%;
+    height: 90%;
+    border-radius: 1em;
+}
+
+.leftCardZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+
+.gameWindow{
+    width: 30%;
+    height: 100%;
+}
+
+.rightCardZone{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+}
+
+.icons{
+    position: absolute;
+    z-index: 2;
+    top: 1em;
+    width: 83%;
+    height: 2em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon_attack{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    left: 0.3em;
+    top: 3.5em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/sword-large.png);
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-size: 2em;
+}
+
+.icon_defense{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    right: 0em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/shield.png);
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-size: 2em;
+}
+
+.icon_armor{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    right: -0.8em;
+    top: 10em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/Armor.png);
+    background-size: cover;
+    background-size: 2em;
+    background-repeat: no-repeat;
+}
+
+.icon_mana{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+   left: -0.8em;
+    top: 11.3em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/mana.png);
+    background-size: cover;
+    background-size: 2em;
+    background-repeat: no-repeat;
+}
+
+.labels{
+    position: absolute;
+    z-index: 2;
+    top: 2em;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label_attack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #6e3a31;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+}
+
+.label_defense{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #2f475e;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+}
+
+.label_armor{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    right: -1.1em;
+    top: 2.5em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #222;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+}
+
+.label_mana{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    left: -1.1em;
+    top: 3.2em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #59adc2;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+    box-shadow: 0 0 30px#a7edff;
+}
+
+.picture{
+    position: absolute;
+    top: 2em;
+    display: flex;
+    width: 17em;
+    height: 17em;
+    border: 5px solid #f1f1f1;
+    border-radius: 50%;
+    background-image: url(./IMAGES/Ling_Yao.png);
+    background-size: cover;
+}
+
+.scroll_name{
+    display: flex;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 6em;
+    background-image: url(./IMAGES/Parchemin_zone_nom.png);
+    background-size: cover;
+    margin-top: -5em;
+}
+
+.name{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #f1f1f1;
+    font-size: 1.3em;
+    top: .4em;
+    font-family: 'Carter One', display;
+}
+
+.card_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12em;
+    height: 1.5em;
+    color: #222;
+    display: flex;
+    font-size: 1.3em;
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: 600;
+}
+
+.lvl_zone{
+    position: absolute;
+    top: 22em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.lvl{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.init{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.equipement{
+    position: absolute;
+    top: 19em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 8em;
+    align-items: center;
+    font-family: 'Albert Sans', sans-serif;
+    letter-spacing: .03em;
+    font-weight: 500;
+    font-size: 1.3em;
+    color: #222;
+    background-color: #2f475e33;
+}
+
+.playerSlotCard1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24em;
+    height: 40em;
+    border-radius: 1.1em;
+    background-image: url(./IMAGES/Parchemin_fond_carte.png);
+    background-size: cover;
+    box-shadow: 0 0 1.5em #222;
+}
+
+span.XP_zone{
+    display: flex;
+    color: #f1f1f1;
+    padding: .5em;
+    font-family: 'Carter One', display;
+}
+
+span.PO_zone{
+    display: flex;
+    color: #f1f1f1;
+    padding: .5em;
+    font-family: 'Carter One', display;
+}
+
+span.HP_zone{
+    position: absolute;
+    top: 14em;
+    display: flex;
+    color: #222;
+    padding: .5em;
+    margin-top: -1em;
+    font-family: 'Carter One', display;
+    font-size: 1.4em;
+}
+
+.top_card_zone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 3.3em;
+    font-size: 1.2em;
+    border-radius: 0 0 1em 1em;
+    background-color: #5e2727af;
+}
+
+.bottom_card_zone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 3.34em;
+    font-size: 1.2em;
+    border-radius: 1em 1em 0 0;
+    background-color: #5e2727af;
+}
+
+.enemySlotCard1{
+    position: relative;
+    width: 18em;
+    height: 34em;
+    border-radius: 1em;
+    background-color: #dbbf95;
+}
+
+.gameWindow{
+    display: flex;
+    flex-direction: column;
+    width: 50em;
+    height: 95%;
+    align-items: center;
+    background-image: url(./IMAGES/Parchemin_fond_gameWindow.png);
+    background-size: cover;
+}
+
+.illustrationWindow{
+    margin-top: 2em;
+    width: 90%;
+    height: 21em;
+    border: 2px dashed #c25b5b;
+}
+
+.separator{
+    width: 95%;
+    height: 1px;
+    background-color: #313131;
+}
+
+.messageWindow{
+    width: 90%;
+    height: 21em;
+    border: 2px dashed #616161;
+}
+
+/* Button */
+
+.buttons_zone{
+    display: flex;
+    margin-top: 0.5em;
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.button_left{
+    font-size: 1.3em;
+    width: 7em;
+    background-color: #6e3a31;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: 3px solid #f1f1f1;
+    border-radius: 2em;
+    font-family: 'Carter One', display;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+.button_middle{
+    font-size: 1.3em;
+    width: 7em;
+    background-color: #59adc2;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: 3px solid #f1f1f1;
+    border-radius: 2em;
+    font-family: 'Carter One', display;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+.button_right{
+    font-size: 1.3em;
+    width: 7em;
+    background-color: #616161;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: 3px solid #f1f1f1;
+    border-radius: 2em;
+    font-family: 'Carter One', display;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  button .btn_attack {
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(./IMAGES/fight.png);
+    background-size: cover;
+    margin-right: 0.5em;
+    transition: ease-in-out .6s;
+  }
+
+  button:hover .btn_attack {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  button:hover .btn_attack{
+    transform: translateX(1.2em) scale(1.1);
+  }
+  
+  button:hover span {
+    transform: translateX(6em);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
