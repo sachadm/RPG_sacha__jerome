@@ -11,5 +11,6 @@
 
     <h2>Créer un compte</h2>
     <?php require_once 'signup.php';?>
+    <p>ugugguufu<p>
 </body>
 </html>
