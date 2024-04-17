@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=albert-sans:300|carter-one:400|delicious-handrawn:400" rel="stylesheet" />
     <script defer src="./script_JDR.js"></script>
-    <title>Dungeon breaker</title>
+    <title>Dungeon Wyrmwood</title>
 </head>
 <body>
     <div class="game-container">
