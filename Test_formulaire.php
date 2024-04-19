@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>creation de personnage</title>
     <link rel="stylesheet" href="style_crea_perso.css">
     <script defer src="scriptincrement.js"></script>

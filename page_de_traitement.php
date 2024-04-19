@@ -120,6 +120,3 @@ try {
     echo "Erreur lors de la création de l'enregistrement : " . $e->getMessage();
 }
     ?>
-
-
-
