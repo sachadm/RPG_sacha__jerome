@@ -27,19 +27,19 @@
                 <div class="icon_mana"></div>
             </div>
             <div class="labels">
-                <div class="label_attack">7</div>
-                <div class="label_defense">7</div>
+                <div class="label_attack"></div>
+                <div class="label_defense"></div>
             </div>
             <div class="labels">
-                <div class="label_armor">2</div>
-                <div class="label_mana">2</div>
+                <div class="label_armor"></div>
+                <div class="label_mana"></div>
             </div>
             <div class="picture"></div>
-            <div class="scroll_name"><h3 class="name">Ling Yao</h3></div>
-            <span class="HP_zone">❤️9/9PV</span>
+            <div class="scroll_name"><h3 class="name"></h3></div>
+            <span class="HP_zone">❤️</span>
             <div class="lvl_zone">
-                <p class="card_lvl"><span class="star"></span>Niveau : 1</p>
-                <p class="card_init">Initiative : 6</p>
+                <p class="card_lvl"><span class="star"></span></p>
+                <p class="card_init"></p>
             </div>
             <div class="equipement">
                 <div class="equipement_buttons">
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div class="bottom_card_zone">
-                <span class="XP_zone">0/50 XP</span>
-                <span class="PO_zone">20 po</span>
+                <span class="XP_zone"></span>
+                <span class="PO_zone"></span>
             </div>
         </div>
     </div>

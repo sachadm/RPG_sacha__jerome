@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "rpg (sacha & jerome)";
+$database = "rpg_sacha_jerome";
 
 try {
     // Création d'un nouvel objet PDO pour se connecter à la base de données
