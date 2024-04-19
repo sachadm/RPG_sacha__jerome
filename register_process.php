@@ -43,19 +43,3 @@ try {
     exit();
 }
 ?>
-
-
-<form id="registerForm" action="register_process.php" method="POST">
-                <div class="input-group">
-                    <input required="" type="text" id="new_username" name="new_username" autocomplete="off" class="input">
-                    <label for="new_username" class="user-label">Nouveau nom d'utilisateur</label>
-                </div>
-                
-                <div class="input-group">
-                    <input required="" type="password" id="newpassword" name="new_password" autocomplete="off" class="input">
-                    <label for="new_password" class="user-label">Nouveau Mot de passe</label>
-                </div>
-    <button type="submit">Enregistrer</button>
-</form>
-<p class="account_link" id="createAccountLinkRegister">Vous avez déjà un compte ? <a href="index.php" id="toggleFormsLinkRegister">Se connecter</a></p>
-
