@@ -1,0 +1,123 @@
+@import url(https://fonts.bunny.net/css?family=carter-one:400);
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 25em;
+    width: 46em;
+    align-items: center;
+    background-size: cover;
+    position: absolute;
+    border-top: 6px ridge #ffb000;
+    border-left: 6px groove #ffb000;
+    border-right: 6px ridge #ffb000;
+    border-bottom: 6px groove #ffb000;
+    box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+    border-radius: 8px;
+}
+
+/* Modal de création de personnage */
+.crea_perso {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 25rem;
+    width: 46rem;
+    flex-direction: column;
+    /* background-color: rgba(0, 0, 0, 0.616); */
+    background-image: url(./IMAGES/image_sacha/background_crea.jpg);
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    font-family: 'Carter One';
+    font-size: 1.1rem;
+}
+
+
+/* bouton d'incrémentation */
+.btn_stat, .create_cara_btn {
+    padding-bottom: 1rem;
+    width: 2.5rem;
+    height: 2rem;
+    border-radius: 8px;
+    font-family: 'Carter One';
+    color: #ffc000;
+    font-size: 1rem;
+    text-shadow: 0 1px 3px #000;
+    text-align: center;
+    background: radial-gradient(circle, #8b0000, #8b0000);
+    border-top: 4px ridge #ffb000;
+    border-left: 4px groove #ffb000;
+    border-right: 4px ridge #ffb000;
+    border-bottom: 4px groove #ffb000;
+    box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+}
+
+.btn_stat:active, .create_cara_btn:active{
+    background: radial-gradient(circle, #ec6a6a, #e52b2b);
+    box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
+  }
+
+.btn_stat:hover, .create_cara_btn:hover {
+    background: radial-gradient(circle, #e52b2b, #8b0000);
+}
+
+
+h2 {
+    color: honeydew;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.stat_name_crea{
+    font-size: 1.6rem;
+}
+
+.info_stat_crea {
+    color: #ffffff;
+}
+
+.incr {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.line {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+}
+
+
+
+.Point_count {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    color: honeydew;
+}
+
+.remaining_point {
+    margin-right: 40px;
+    color: honeydew;
+}
+
+.input_name {
+    color: honeydew;
+}
+
+.choix_portrait {
+    color: honeydew;
+}
+
+.formulaire_crea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create_cara_btn {
+    width: 4rem;
+}
