@@ -1,23 +1,50 @@
+<?php
+session_start();
+require_once('connection.php');
 
+// Vérifier si l'utilisateur est connecté, sinon le rediriger vers la page de connexion
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Récupérer les informations de l'utilisateur à partir de la session (optionnel)
+// Vous pouvez utiliser ces informations pour personnaliser l'affichage de la page d'accueil
+$user_id = $_SESSION['user_id'];
+
+// Exemple : récupérer le nom de l'utilisateur à partir de la base de données
+$statement = $pdo->prepare("SELECT user_name FROM users WHERE id = :user_id");
+$statement->execute(['user_id' => $user_id]);
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+$user_name = $user['user_name'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles_JDR.css">
+    <link rel="icon" type="image/png" href="./IMAGES/epees.png">
+    <link rel="stylesheet" href="./styles_board_game.css">
+    <link rel="stylesheet" href="./modal.css">
+    <script defer src="./script_card_buttons.js"></script>
+    <script defer src="./script_modal.js"></script>
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=albert-sans:300|carter-one:400|delicious-handrawn:400" rel="stylesheet" />
-    <script defer src="./script_JDR.js"></script>
-    <title>Dungeon Wyrmwood</title>
+    <link href="https://fonts.bunny.net/css?family=bigelow-rules:400|chelsea-market:400|finger-paint:400|new-rocker:400" rel="stylesheet" />
+    <title>Evermist Dungeons</title>
 </head>
 <body>
-    <div class="game-container">
-<!-- ///////////////////// Zone LEFT CARD ////////////////// -->
-        <div class="leftCardZone">
-        <div class="playerSlotCard1">
-        <div class="top_card_zone"></div>
-        <div class="card">
+    <span class="welcome">
+        <p>Bienvenue sur Evermist Dungeons, <?php echo $user_name; ?></span> !</p>
+        <p><a href="#">Nouveau personnage</a></p>
+        <p><a href="#">Choix du personnage</a></p>
+        <p><a href="logout.php">Se déconnecter</a></p>
+        <p><a href="delete_account.php">Supprimer mon compte</a></p>
+    </span>
+    <div class="game_board">
+        <div class="card_zone">
+            <div class="card_player">
+            <div class="top_card_zone"></div>
             <div class="icons">
                 <div class="icon_attack"></div>
                 <div class="icon_defense"></div>
@@ -62,11 +89,9 @@
                 <span class="XP_zone"></span>
                 <span class="PO_zone"></span>
             </div>
+            </div>
         </div>
-    </div>
-        </div>
-<!-- ///////////////////// Zone WINDOW ////////////////// -->
-        <div class="gameWindow">
+        <div class="container">
             <div class="illustrationWindow"></div>
             <div class="messageWindow"></div>
             <div class="buttons_zone">
@@ -84,57 +109,19 @@
                 </button>
             </div>
         </div>
-<!-- ///////////////////// Zone RIGHT CARD ////////////////// -->
-        <div class="rightCardZone">
-        <div class="enemySlotCard">
-        <div class="top_card_enemy"></div>
-        <div class="card">
-            <div class="icons">
-                <div class="icon_attack"></div>
-                <div class="icon_defense"></div>
+        <div class="events-zone">
+            <div class="top-event-card">
+                
             </div>
-            <div class="icons">
-                <div class="icon_armor"></div>
-                <div class="icon_mana"></div>
-            </div>
-            <div class="labels">
-                <div class="label_attack">8</div>
-                <div class="label_defense">5</div>
-            </div>
-            <div class="labels">
-                <div class="label_armor">2</div>
-                <div class="label_mana">2</div>
-            </div>
-            <div class="picture_enemy"></div>
-            <div class="scroll_name_enemy"><h3 class="name">John Warden</h3></div>
-            <span class="HP_zone">❤️11/11PV</span>
-            <div class="lvl_zone">
-                <p class="card_lvl">Niveau : 1</p>
-                <p class="card_init">Initiative : 5</p>
-            </div>
-            <div class="equipement">
-                <div class="equipement_buttons">
-                    <button id="btnEquipementEnemy" class="equipped_items">Équipement</button>
-                    <button id="btnInventaireEnemy" class="inventory">Inventaire</button>
-                </div>
-                <div id="equipementTextEnemy" class="equipement_text_enemy">
-                    <span class="attack_equipement">Hache lourde : 6</span>
-                    <span class="defense_equipement">Bouclier fendu : 3</span>
-                    <span class="Armor_equipement">Armure de l'ours gris : 2</span>
-                </div>
-                <div id="inventoryZoneEnemy" class="inventory_zone_enemy">
-                    <!-- Contenu de l'inventaire ennemi ici -->
-                    <span>Objet 1</span>
-                    <span>Objet 2</span>
-                    <span>Objet 3</span>
-                </div>
-            </div>
-            <div class="bottom_card_enemy">
-                <span class="XP_zone">0/50 XP</span>
-                <span class="PO_zone">20 po</span>
+            <div class="bottom-event-card">
+
             </div>
         </div>
     </div>
-        </div>
+    <div id="modal" class="modal">
+    <div class="modal-content">
+        <!-- Contenu de votre modale ici -->
+    </div>
+    </div>
 </body>
 </html>
