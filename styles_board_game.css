@@ -1,0 +1,737 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #222;
+}
+
+.game_board {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #333;
+    width: 90%;
+    height: 90%;
+    border-radius: 1em;
+}
+/* //////////////////////////////// EVENTS CARDS ZONE //////////////////////////////// */
+.events-zone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25em;
+    height: 90%;
+    border-radius: 2em;
+    margin-top: 2.5%;
+}
+
+.top-event-card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 45%;
+    border-radius: 1em;
+    background-image: url(./IMAGES/marchand.png);
+    background-size: cover;
+}
+
+.bottom-event-card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 45%;
+    border-radius: 1em;
+    background-image: url(./IMAGES/Parchemin_fond_carte.png);
+    background-size: cover;
+}
+/* //////////////////////////////// TEXT WINDOW ZONE //////////////////////////////// */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+    height: 50em;
+    padding: 2em;
+    border-radius: 1em;
+    background-image: url(./IMAGES/Background_boardgame_scroll.png);
+    background-size: cover;
+    color: #f1f1f1;
+}
+
+.illustrationWindow{
+    margin-top: 2em;
+    width: 90%;
+    height: 21em;
+    /* border: 2px dashed #c25b5b; */
+}
+
+.messageWindow{
+    width: 90%;
+    height: 21em;
+    /* border: 2px dashed #616161; */
+}
+/* //////////////////////////////// CONNECTION_NAV //////////////////////////////// */
+.welcome {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    width: 85em;
+    top: .5em;
+    right: .5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f1f1f1;
+    font-size: 1.1em;
+}
+
+.welcome a {
+    color: brown;
+}
+
+.userName {
+    font-family: 'Chelsea Market', display;
+    font-size: 1em;
+}
+
+.dungeon {
+    position: absolute;
+    font-family: 'Chelsea Market', display;
+    margin-top: 1.32em;
+    margin-left: 4.5em;
+    font-size: .6em;
+    transform: rotate(-6deg);
+    color: brown;
+}
+
+h2 {
+    height: 1.2em;
+    color: #444;
+    font-size: 3em;
+    font-family: 'Bigelow Rules', display;
+    letter-spacing: .05em;
+}
+
+.boxError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30em;
+    height: 1.6em;
+    margin-bottom: .1em;
+    font-size: 1.2em;
+    color: brown;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30em;
+    height: 15em;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.account_link {
+    font-size: 1.1em;
+    margin-top: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.account_link a {
+    color: brown;
+    font-weight: 400;
+}
+/* //////////////////////////////// CHARCTERS CARD //////////////////////////////// */
+.picture{
+    position: absolute;
+    top: 2em;
+    display: flex;
+    width: 17em;
+    height: 17em;
+    border: 5px solid #f1f1f1;
+    border-radius: 50%;
+    background-image: url(./IMAGES/Ling_Yao.png);
+    background-size: cover;
+}
+
+.icons{
+    position: absolute;
+    z-index: 2;
+    top: 1em;
+    width: 83%;
+    height: 2em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon_attack{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    left: 0.3em;
+    top: 0em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/sword.png);
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-size: 2em;
+}
+
+.icon_defense{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    right: 0em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/shield.png);
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-size: 2em;
+}
+
+.icon_armor{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    right: -0.8em;
+    top: 10em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/Armor.png);
+    background-size: cover;
+    background-size: 2em;
+    background-repeat: no-repeat;
+}
+
+.icon_mana{
+    position: absolute;
+    z-index: 4;
+    display: flex;
+   left: -0.8em;
+    top: 11.3em;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/mana.png);
+    background-size: cover;
+    background-size: 2em;
+    background-repeat: no-repeat;
+}
+
+.labels{
+    position: absolute;
+    z-index: 2;
+    top: 2em;
+    width: 68%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label_attack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #6e3a31;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+}
+
+.label_defense{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #2f475e;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+}
+
+.label_armor{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    right: -1.1em;
+    top: 2.5em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #222;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+}
+
+.label_mana{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    left: -1.1em;
+    top: 3.2em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #59adc2;
+    border-radius: 50%;
+    border: solid 3px #f1f1f1;
+    color: #f1f1f1;
+    font-family: 'Carter One', display;
+    box-shadow: 0 0 30px#a7edff;
+}
+
+.card_player {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25em;
+    height: 80%;
+    background-image: url(./IMAGES/Parchemin_fond_carte.png);
+    background-size: cover;
+    border-radius: 2em;
+    margin: 20% 0;
+}
+
+.scroll_name{
+    display: flex;
+    position: absolute;
+    top: 14em;
+    z-index: 3;
+    width: 100%;
+    height: 6em;
+    background-image: url(./IMAGES/Parchemin_zone_nom.png);
+    background-size: cover;
+    
+}
+
+.name{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #f1f1f1;
+    font-size: 1.3em;
+    top: .4em;
+    font-family: 'Carter One', display;
+}
+
+.card_lvl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12em;
+    height: 1.5em;
+    color: #222;
+    display: flex;
+    font-size: 1.3em;
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: 600;
+}
+
+.card_init{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12em;
+    height: 1.5em;
+    color: #222;
+    display: flex;
+    font-size: 1.3em;
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: 600;
+}
+
+.lvl_zone{
+    position: absolute;
+    top: 21em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 5em;
+}
+
+.lvl{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.star {
+    position: absolute;
+    z-index: 10;
+    top: -1.2em;
+    left: 1.4em;
+    transform: translateX(-50%);
+    width: 1.6em;
+    height: 1.6em;
+    background-image: url(./IMAGES/star.png);
+    background-size: cover;
+    cursor: pointer;
+    animation: starAnimation 2s ease-in-out infinite;
+}
+
+@keyframes starAnimation {
+    0%, 100% {
+        transform: translate(-50%, 0) scale(1);
+    }
+    50% {
+        transform: translate(-50%, 100%) scale(1.2);
+    }
+}
+
+.init{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.equipement{
+    position: absolute;
+    top: 20.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 7.8em;
+    align-items: center;
+    font-family: 'Albert Sans', sans-serif;
+    letter-spacing: .03em;
+    font-weight: 500;
+    font-size: 1.3em;
+    color: #222;
+    border-top: 3px #f1f1f1 solid;
+    background-color: #2f475e33;
+}
+
+.equipement_text_player {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory_zone_player {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.equipement_buttons {
+    position: absolute;
+    z-index: 6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+    height: 2em;
+    top: -1em;
+}
+
+.equipped_items {
+    width: 7em;
+    font-family: 'Carter One', display;
+    font-size: 1em;
+    background-color: #616161;
+    color: #f1f1f1;
+    border-radius: .5em;
+    border: #f1f1f1 2px solid;
+    box-shadow: 0 2px 8px #313131a2;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.potion_line{
+    display: flex;
+    width: 12em;
+    height: 2em;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+    transition: all ease-in-out .5s;
+}
+
+.potion_line:hover{
+    color: #6e3a31;
+    transition: all ease-in-out .5s;
+}
+
+.potion{
+    display: flex;
+    width: 2em;
+    height: 2em;
+    background-image: url(./IMAGES/potionHP.png);
+    background-size: cover;
+}
+
+.equipped_items:hover {
+    box-shadow: 0 0 8px #31313100;
+    background-color: #6e3a31;
+    transition: all ease-in-out .3s;
+}
+
+.inventory {
+    width: 7em;
+    font-family: 'Carter One', display;
+    font-size: 1em;
+    background-color: #616161;
+    color: #f1f1f1;
+    border-radius: .5em;
+    border: #f1f1f1 2px solid;
+    box-shadow: 0 2px 8px #313131a2;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.inventory:hover {
+    box-shadow: 0 2px 8px #31313100;
+    background-color: #6e3a31;
+    transition: all ease-in-out .3s;
+}
+
+span.XP_zone{
+    display: flex;
+    color: #f1f1f1;
+    padding: .5em;
+    font-family: 'Carter One', display;
+}
+
+span.PO_zone{
+    display: flex;
+    color: #f1f1f1;
+    padding: .5em;
+    font-family: 'Carter One', display;
+}
+
+span.HP_zone{
+    position: absolute;
+    top: 14em;
+    display: flex;
+    color: #222;
+    padding: .5em;
+    margin-top: -1em;
+    font-family: 'Carter One', display;
+    font-size: 1.4em;
+}
+
+.top_card_zone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 3.3em;
+    font-size: 1.2em;
+    border-radius: 0 0 1em 1em;
+    background-color: #5e2727af;
+}
+
+.bottom_card_zone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 3.34em;
+    font-size: 1.2em;
+    border-radius: 1em 1em 0 0;
+    background-color: #5e2727af;
+}
+/* //////////////////////////////// BUTTONS //////////////////////////////// */
+.buttons_zone{
+    display: flex;
+    margin-top: 0.5em;
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.red_button {
+    font-family: inherit;
+    font-size: 20px;
+    background: #6e3a31;
+    color: white;
+    font-family: 'Carter One', display;
+    padding: 0.7em 1em;
+    padding-left: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid #f1f1f1;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+
+.blue_button {
+    font-family: inherit;
+    font-size: 20px;
+    background: #59adc2;
+    color: white;
+    font-family: 'Carter One', display;
+    padding: 0.7em 1em;
+    padding-left: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid #f1f1f1;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .blue_button:hover {
+    box-shadow: 0 0 1.5em#a8ecfd;
+    background-color: #f1f1f1;
+    transition: all 0.2s;
+  }
+
+.gray_button {
+    font-family: inherit;
+    font-size: 20px;
+    background: #616161;
+    color: white;
+    font-family: 'Carter One', display;
+    padding: 0.7em 1em;
+    padding-left: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid #f1f1f1;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .image-wrapper-red {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7em;
+    height: 1.7em;
+    background-image: url(./IMAGES/fight.png);
+    background-size: cover;
+    margin-right: 0.5em;
+    position: absolute;
+    left: -2em;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease-in-out;
+  }
+
+  .image-wrapper-blue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4em;
+    height: 2.4em;
+    background-image: url(./IMAGES/curled.png);
+    background-size: cover;
+    margin-right: 0.5em;
+    position: absolute;
+    left: -3em;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease-in-out;
+  }
+
+  .image-wrapper-gray {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4em;
+    height: 2.4em;
+    background-image: url(./IMAGES/runer.png);
+    background-size: cover;
+    margin-right: 0.5em;
+    position: absolute;
+    left: -3em;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease-in-out;
+  }
+  
+  button span {
+    display: block;
+    justify-content: center;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover .image-wrapper-red   {
+    left: 37%;
+    top: 50%; /* Centrage vertical de l'image au survol */
+  }
+
+  button:hover .image-wrapper-blue   {
+    left: 32.5%;
+    top: 50%; /* Centrage vertical de l'image au survol */
+  }
+
+  button:hover .image-wrapper-gray   {
+    left: 30%;
+    top: 50%; /* Centrage vertical de l'image au survol */
+  }
+  
+  button:hover span {
+    transform: translateX(6em);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
