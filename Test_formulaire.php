@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div class="crea_perso">
-            <form action="page_de_traitement.php" method="post" enctype="multipart/form-data" class="formulaire_crea">
+            <form action="create_push_newcharacter.php" method="post" enctype="multipart/form-data" class="formulaire_crea">
             <div class="input_name">
                 <label for="nom">Entrez votre nom :</label>
                 <input type="text" id="nom" name="nom" required>
