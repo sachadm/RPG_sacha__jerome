@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -14,6 +15,42 @@ body {
     background-color: #222;
 }
 
+.game_board {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #333;
+    width: 90%;
+    height: 90%;
+    border-radius: 1em;
+}
+/* GAME CARD PLAYER */
+.card_player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25em;
+    height: 80%;
+    background-image: url(./IMAGES/Parchemin_fond_carte.png);
+    background-size: cover;
+    border-radius: 2em;
+    margin: 20% 0;
+}
+/* EVENTS CARDS ZONE */
+.events-zone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25em;
+    height: 90%;
+    background-image: url(./IMAGES/Parchemin_fond_carte.png);
+    background-size: cover;
+    border-radius: 2em;
+    margin-top: 2.5%;
+}
+/* TEXT WINDOW ZONE */
 .container {
     display: flex;
     flex-direction: column;
@@ -28,77 +65,87 @@ body {
     color: #f1f1f1;
 }
 
-#loginForm {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#registerForm {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 h1 {
     position: relative;
     display: flex;
     justify-content: center;
-    font-family: 'New Rocker', display; 
+    font-family: 'New Rocker', display;
     width: 7em;
     height: 2.2em;
     color: #222;
     font-size: 5em;
-    left: -0.4em;
+    left: -0.5em;
+}
+
+.welcome {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    width: 45em;
+    top: .5em;
+    right: .5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f1f1f1;
+    font-size: 1.1em;
+}
+
+.welcome a {
+    color: brown;
+}
+
+.userName {
+    font-family: 'Chelsea Market', display;
+    font-size: 1em;
 }
 
 .dungeon {
     position: absolute;
     font-family: 'Chelsea Market', display;
-    margin-top: 1.25em;
+    margin-top: 1.32em;
     margin-left: 4.5em;
-    font-size: .65em;
+    font-size: .6em;
     transform: rotate(-6deg);
     color: brown;
 }
 
 h2 {
-    height: 1.5em;
-    color: #333;
-    font-size: 2.5em;
+    height: 1.2em;
+    color: #444;
+    font-size: 3em;
     font-family: 'Bigelow Rules', display;
     letter-spacing: .05em;
 }
 
-.error_zone {
+.boxError {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30em;
     height: 1.6em;
     margin-bottom: .1em;
-    font-size: 1.4em;
+    font-size: 1.2em;
     color: brown;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container form {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 30em;
-    height: 20em;
+    height: 15em;
     flex-direction: column;
     gap: 1em;
 }
 
 .account_link {
     font-size: 1.1em;
+    margin-top: 1em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .account_link a {
-    color:brown ;
+    color: brown;
     font-weight: 400;
 }
 
@@ -131,12 +178,14 @@ h2 {
     transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input:focus, .input:valid {
+.input:focus,
+.input:valid {
     outline: none;
     border: 1.5px solid #222;
 }
 
-.input:focus ~ .user-label, .input:valid ~ .user-label {
+.input:focus~.user-label,
+.input:valid~.user-label {
     transform: translateY(150%) scale(0.9);
     background-color: #222;
     padding: .1em .4em .3em .4em;
@@ -144,7 +193,6 @@ h2 {
 }
 
 /* Bouton submit */
-
 button {
     font-size: 18px;
     color: #222;
@@ -158,20 +206,20 @@ button {
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     transition-duration: 400ms;
     transition-property: color;
-  }
-  
-  button:focus,
-  button:hover {
+}
+
+button:focus,
+button:hover {
     color: #222;
-  }
-  
-  button:focus:after,
-  button:hover:after {
+}
+
+button:focus:after,
+button:hover:after {
     width: 100%;
     left: 0%;
-  }
-  
-  button:after {
+}
+
+button:after {
     content: "";
     pointer-events: none;
     bottom: -2px;
@@ -179,8 +227,9 @@ button {
     position: absolute;
     width: 0%;
     height: 2px;
-    background-color: #222;
+    background-color: brown;
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     transition-duration: 400ms;
     transition-property: width, left;
-  }
+}
+
