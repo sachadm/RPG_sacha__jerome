@@ -2,7 +2,7 @@
 session_start();
 require_once('connection.php');
 
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['idusers'])) {
     header("Location: game.php");
     exit;
 }
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $password = $_POST['password'];
 
     // Vérifier si le nom d'utilisateur existe déjà dans la base de données
-    $statement = $pdo->prepare("SELECT COUNT(*) FROM users WHERE user_name = :username");
+    $statement = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = :username");
     $statement->execute(['username' => $username]);
     $count = $statement->fetchColumn();
 
@@ -22,15 +22,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     } else {
         // Nom d'utilisateur disponible, procéder à l'insertion dans la base de données
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $insertStatement = $pdo->prepare("INSERT INTO users (user_name, password) VALUES (:username, :password)");
+        $insertStatement = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
         $result = $insertStatement->execute(['username' => $username, 'password' => $hashed_password]);
 
         if ($result) {
-            // Rediriger l'utilisateur vers game.php après la création du compte
+            // Stocke l'ID de l'utilisateur dans la variable de session
+            $_SESSION['idusers'] = $pdo->lastInsertId();
+
+            // Redirige l'utilisateur vers game.php après la création du compte
             header("Location: game.php");
             exit;
         } else {
-            // Gérer d'autres erreurs possibles
+            // Affiche un message d'erreur en cas d'échec de l'insertion dans la base de données
             $error = "Une erreur s'est produite lors de la création du compte. Veuillez réessayer.";
         }
     }

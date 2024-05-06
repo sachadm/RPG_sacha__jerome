@@ -3,7 +3,7 @@ session_start();
 require_once('connection.php');
 
 // Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['idusers'])) {
     // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
     header("Location: login.php");
     exit;
@@ -11,11 +11,16 @@ if (!isset($_SESSION['user_id'])) {
 
 // Traitement de la demande de suppression du compte
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
-    // Supprimer le compte de l'utilisateur de la base de données
-    $user_id = $_SESSION['user_id'];
-    $deleteStatement = $pdo->prepare("DELETE FROM users WHERE id = :user_id");
-    $deleteStatement->execute(['user_id' => $user_id]);
+    $idusers = $_SESSION['idusers'];
 
+    $deleteassociatecharactere = $pdo->prepare("DELETE FROM player WHERE users_idusers = :idusers");
+    $deleteassociatecharactere->execute(['idusers' => $idusers]);
+
+
+    // Supprimer le compte de l'utilisateur de la base de données
+    $deleteUser = $pdo->prepare("DELETE FROM users WHERE idusers = :idusers");
+    $deleteUser->execute(['idusers' => $idusers]);
+    
     // Déconnexion de l'utilisateur
     session_destroy();
     // Rediriger vers une page de confirmation ou une autre page appropriée

@@ -1,5 +1,10 @@
 <?php
-require_once 'connection.php';
+session_start();
+require_once ('connection.php');
+require_once ('game.php');
+
+
+///////////////////////////////////////////////////////////
 // Vérifie si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifie si un fichier a été sélectionné
@@ -99,11 +104,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Création de la requête SQL
 // Création de la requête SQL avec des paramètres
 $sql = "INSERT INTO player (users_idusers, Character_Name, Image, PV, PV_MAX, MANA, ATK, Defense, Armure, INIT, LEVEL, EXP, PO) 
-        VALUES (1, :nom_crea, :chemincomplet, :countingPV, :countingPV, :countingMana, :countingATK, :countingDEF, 3, :countingInit, 1, 0, 100)";
+        VALUES ($idusers, :nom_crea, :chemincomplet, :countingPV, :countingPV, :countingMana, :countingATK, :countingDEF, 3, :countingInit, 1, 0, 100)";
 
-$stmt = $connection->prepare($sql);
+$stmt = $pdo->prepare($sql);
 
 // Liaison des valeurs avec les paramètres
+
+
+// $stmt->bindParam(':users_idusers', $idusers);
 $stmt->bindParam(':nom_crea', $nom_crea);
 $stmt->bindParam(':chemincomplet', $chemincomplet);
 $stmt->bindParam(':countingPV', $countingPV);
@@ -119,4 +127,4 @@ try {
 } catch (PDOException $e) {
     echo "Erreur lors de la création de l'enregistrement : " . $e->getMessage();
 }
-    ?>
+

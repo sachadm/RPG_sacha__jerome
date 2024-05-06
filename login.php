@@ -2,24 +2,25 @@
 session_start();
 require_once('connection.php');
 
-if (isset($_SESSION['user_id'])) {
-    header("Location: game.php");
-    exit;
-}
+   if (isset($_SESSION['idusers'])) {
+     header("Location: game.php");
+
+ }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $statement = $pdo->prepare("SELECT id, password FROM users WHERE user_name = :username");
+    $statement = $pdo->prepare("SELECT idusers, password FROM users WHERE username = :username");
     $statement->execute(['username' => $username]);
     $user = $statement->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        
-        header("Location: game.php");
-        exit;
+        var_dump($user);
+        $_SESSION['idusers'] = $user['idusers'];
+     echo $_SESSION;
+        header("Location: http://localhost/RPG_TP_(sacha_j%c3%a9rome)/RPG_sacha__jerome/game.php");
+
     } else {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
     }
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     <div class="boxError">
         <?php if (isset($error)) echo "<p>$error</p>"; ?>
     </div>
-    <form id="registerForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <form id="registerForm" action="" method="POST">
         <div class="input-group">
             <input class="input" type="text" id="username" name="username" autocomplete="off" required>
             <label for="username" class="user-label">Nom d'utilisateur</label>
